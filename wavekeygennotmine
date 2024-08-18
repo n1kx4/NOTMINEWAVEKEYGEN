@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave - Random Key Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="https://waveexecutor.com/wp-content/uploads/2024/04/wave-logo.png">
+
+
+
+    <div class="image-container">
+        <img src="https://waveexecutor.com/wp-content/uploads/2024/04/wave-logo.png" alt="Wave Logo">
+    </div>
+    <script src="js/script.js"></script>
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+    <style>
+     .image-container {
+        border-radius: 5px;
+        height: 70px;
+        width: 70px;
+        position: absolute;
+        z-index: 9999;
+        top: 20px;
+        left: 20px;
+    }
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background: #001f3f; /* Dark blue */
+        }
+        .section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #00bfff 0%, #0066ff 100%);
+        }
+        .air {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url(https://1.bp.blogspot.com/-xQUc-TovqDk/XdxogmMqIRI/AAAAAAAACvI/AizpnE509UMGBcTiLJ58BC6iViPYGYQfQCLcBGAsYHQ/s1600/wave.png);
+            background-size: 1000px 100px;
+        }
+        .air.air1 {
+            animation: wave 30s linear infinite;
+            z-index: 1000;
+            opacity: 1;
+            animation-delay: 0s;
+            bottom: 0;
+        }
+        .air.air2 {
+            animation: wave2 15s linear infinite;
+            z-index: 999;
+            opacity: 0.5;
+            animation-delay: -5s;
+            bottom: 10px;
+        }
+        .air.air3 {
+            animation: wave 30s linear infinite;
+            z-index: 998;
+            opacity: 0.2;
+            animation-delay: -2s;
+            bottom: 15px;
+        }
+        .air.air4 {
+            animation: wave2 5s linear infinite;
+            z-index: 997;
+            opacity: 0.7;
+            animation-delay: -5s;
+            bottom: 20px;
+        }
+        @keyframes wave {
+            0% {
+                background-position-x: 0px;
+            }
+            100% {
+                background-position-x: 1000px;
+            }
+        }
+        @keyframes wave2 {
+            0% {
+                background-position-x: 0px;
+            }
+            100% {
+                background-position-x: -1000px;
+            }
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95); /* Light blue with opacity */
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            position: absolute;
+            z-index: 9999;
+            max-width: 600px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 36px;
+            color: #001f3f; /* Dark blue */
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .key {
+            font-size: 28px;
+            margin: 20px 0;
+            padding: 10px;
+            border: 2px dashed #0047ab; /* Medium blue */
+            border-radius: 10px;
+            display: inline-block;
+            width: 525px;
+            background: rgba(255, 255, 255, 0.7); /* Light blue with opacity */
+            transition: background 0.5s, border-color 0.5s;
+            white-space: nowrap; /* Prevents wrapping */
+            overflow: hidden; /* Hides overflow content */
+            text-overflow: ellipsis; /* Shows ellipsis for overflow content */
+        }
+        .key.animate-key {
+            background: rgba(0, 255, 174, 0.1); /* Light green with opacity */
+            border-color: #00ffae; /* Neon green */
+            animation: key-glow 0.5s steps(4, end) infinite;
+        }
+        button {
+            position: relative;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 25px;
+            background: #0047ab; /* Medium blue */
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        button:hover {
+            background: #002a60; /* Darker blue */
+        }
+        @keyframes key-glow {
+            0% {
+                content: 'XXXXX-XXXXX-XXXXX-XXXXX';
+            }
+            25% {
+                content: 'XXXXX-XXXXX-XXXXX-XXXXX';
+            }
+            50% {
+                content: 'XXXXX-XXXXX-XXXXX-XXXXX';
+            }
+            75% {
+                content: 'XXXXX-XXXXX-XXXXX-XXXXX';
+            }
+            100% {
+                content: 'XXXXX-XXXXX-XXXXX-XXXXX';
+            }
+        }
+        .neon-message {
+            position: fixed;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background: rgba(0, 255, 174, 0.1); /* Light green with opacity */
+            border: 2px solid #00ffae; /* Neon green */
+            border-radius: 10px;
+            font-size: 14px;
+            color: #00ffae; /* Neon green */
+            text-shadow: 0 0 10px #00ffae, 0 0 20px #00ffae, 0 0 30px #00ffae;
+            opacity: 0;
+            transition: top 0.5s ease-out, opacity 0.5s ease-out;
+            animation: neon-glow 1.5s infinite alternate;
+            z-index: 9999;
+            position: absolute;
+        }
+        .neon-message.show {
+            top: 10px;
+            opacity: 1;
+        }
+        @keyframes neon-glow {
+            from {
+                box-shadow: 0 0 5px #00ffae, 0 0 20px #00ffae, 0 0 30px #00ffae, 0 0 40px #00ffae;
+            }
+            to {
+                box-shadow: 0 0 10px #00ffae, 0 0 30px #00ffae, 0 0 40px #00ffae, 0 0 50px #00ffae;
+            }
+        }
+
+        .extension {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 850px;
+    font-family: 'Orbitron', sans-serif;
+    line-height: 1.6;
+    border-radius: 5px;
+    z-index: 9999;
+    position: absolute;
+    margin-left: 50px;
+    color:#333;
+    
+
+}
+.extension strong {
+    color: #333;
+    font-family: 'Orbitron', sans-serif;
+   
+}
+
+.discord {
+    font-size: 17px;
+}
+    
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class='air air1'></div>
+        <div class='air air2'></div>
+        <div class='air air3'></div>
+        <div class='air air4'></div>
+    </div>
+    <div class="neon-message" id="neonMessage">This is a generated, not 100% accurate key.</div>
+    <div class="container">
+        <h1>Wave Generator .</h1>
+        <h1 class="discord">Discord ~ johnmessi1010</h1>
+        <div class="key" id="key">Click the button to generate a key</div>
+        <button onclick="generateKey()">Generate Key</button>
+        <button id="copyButton" onclick="copyKey()" style="display: none;">Copy Key</button>
+    </div>
+    <script>
+        function generateKey() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let key = '';
+            for (let i = 0; i < 4; i++) {
+                let segment = '';
+                for (let j = 0; j < 5; j++) {
+                    segment += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                key += segment + (i < 3 ? '-' : '');
+            }
+
+            const keyElement = document.getElementById('key');
+            const messageElement = document.getElementById('neonMessage');
+            const copyButton = document.getElementById('copyButton');
+
+            keyElement.classList.add('animate-key');
+            setTimeout(() => {
+                keyElement.classList.remove('animate-key');
+                keyElement.innerText = key;
+
+                // Show the neon message
+                messageElement.classList.add('show');
+                setTimeout(() => {
+                    // Hide the neon message after 2 seconds
+                    messageElement.classList.remove('show');
+                }, 2000);
+
+                // Show the copy button
+                copyButton.style.display = 'inline-block';
+            }, 1000); // Time should match the animation duration
+        }
+
+        function copyKey() {
+            const keyElement = document.getElementById('key');
+            const tempInput = document.createElement('input');
+            tempInput.value = keyElement.innerText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+        }
+    </script>
+
+<div class="extension">
+    <strong>Wave Generator Key Extension Released!!!</strong><br>
+    We released a Extension! DM in discord: johnmessi1010 for extension!
+</div>
+
+
+</body>
+</html>
